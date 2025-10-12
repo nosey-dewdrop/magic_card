@@ -7,6 +7,7 @@ Player::Player() {
       name = "unnamed";
       hand = nullptr;
       handSize = 0;
+      cout<< "\n⋆˚౨ৎ ⋆.˚" << endl;
       cout << "player created without name!!!" << endl;
 }
 
@@ -101,23 +102,3 @@ void Player::listCards() const {
 
     cout << endl;
 }
-
-int main() {
-    Player damla(1, "damla");
-
-    damla.addCard("ace of pentacles");
-    damla.addCard("two of pentacles");
-    damla.addCard("three of pentacles");
-
-    cout << "before: " << endl;
-    damla.listCards();
-
-    damla.removeCard(2);
-
-    cout << "after: " << endl;
-    damla.listCards();
-    return 0;
-}
-
-//  g++ Player.cpp -o main
-// ./main

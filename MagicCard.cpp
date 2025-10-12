@@ -215,7 +215,18 @@ void MagicCard::play(const int playerID, const string card){
       if(!playerExists(playerID) || !playerHasCard(card)){ 
             return;
       }
-      
+
+      if(discardPileSize == 0) { // oyna
+            string* newDiscard = new string[1];
+            newDiscard[0] = card;
+            
+            delete[] discardPile;
+
+      }
+      else{
+            // renk / numara kontrolü burada olacak
+      }
+
 }
 
 

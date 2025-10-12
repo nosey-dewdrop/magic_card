@@ -47,21 +47,44 @@ class Player {
 
             stack memory is managed automatically. deconstructor too when retorn 0;
             so, in deconstructor add delete[] hand;
+            Player::~Player() {
+            delete[] hand;
+}
             */
 
             int handSize;   
 
       public:
+
             Player();                           
             Player(int newId, string newName);  
             ~Player();                         
 
-            int getId() const;
+            int getId() const; // won't change the value.
             string getName() const;
+
+            /*
+            void showPlayer(const Player& p) {
+                  cout << p.getId();
+            }
+
+            p is not a copy, it is a referance here. takes the adress, reads the value in the adress, only reads but not changes.
+
+
+            Player p1(1, "Damla");
+            Player& ref = p1;
+
+            ref and p1 are attached to the same place in memory. 
+            ref.getId() is the same with p1.getId()
+
+            */
 
             void addCard(const string& card);   
             void removeCard(int index);         
-            void listCards() const;             
+            void listCards() const;        
+            
+            // . : if the object itself
+            // -> if there is an address. (*_). is ok too.
 };
 
 #endif

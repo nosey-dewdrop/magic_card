@@ -7,7 +7,7 @@ using namespace std;
 class MagicCard {
 public:
     MagicCard();
-    ~MagicCard(); //nesneyi yok etmek için. dinamik belleği (new ile açılanları) temizliyor.
+    ~MagicCard();
 };
 
-#endif //ifndef kapatıyor...
+#endif 

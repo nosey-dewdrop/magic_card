@@ -7,8 +7,7 @@ Player::Player() {
       name = "unnamed";
       hand = nullptr;
       handSize = 0;
-      cout<< "\n⋆˚౨ৎ ⋆.˚" << endl;
-      cout << "player created without name!!!" << endl;
+      cout<< "> player created: " << "\n*name: " << name << "\n*id: " << id << endl;
 }
 
 Player::Player(int newId, string newName) {
@@ -16,13 +15,11 @@ Player::Player(int newId, string newName) {
     name = newName;      
     hand = nullptr;      
     handSize = 0;  
-    cout<< "\n⋆˚౨ৎ ⋆.˚" << endl;   
-    cout << "player created: " << name << " (ID: " << id << ")\n" << endl;
+    cout<< "> player created: " << "\n*name: " << name << "\n*id: " << id << endl;
 }
 
 Player::~Player() {
-    cout << "destructed! " << name <<  endl;
-    cout<< "⋆˚౨ৎ ⋆.˚\n" << endl;
+      cout << "> player destructed: " << endl;
 }
 
 int Player::getId() const {
@@ -73,9 +70,9 @@ void Player::removeCard(int index){
             return;
       }
 
-      cout<< "> you want to remove: " << hand[index] << endl;
+      // STEP 1: you want to remove card in array.
+      cout << "want to remove: " << hand[index]<<endl;
       string* newHand = new string[handSize - 1];
-
       for (int i = 0; i < index; i++){
             newHand[i] = hand[i];
       }

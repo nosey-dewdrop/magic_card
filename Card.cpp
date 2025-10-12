@@ -5,22 +5,19 @@ using namespace std;
 Card::Card(){
       name = "no name";
       power = 0;
-      cout<< "\n⋆˚౨ৎ ⋆.˚" << endl;
-      cout << "card created: " << name << " with power " << power << endl;
-
+      cout<< ">card created: " << name << endl;
 }
 
 Card::Card(string newName, int newPower){
       name = newName;
       power = newPower;
-      cout<< "\n⋆˚౨ৎ ⋆.˚" << endl;
-      cout << "card created: " << name << " with power " << power << endl;
+      cout<< ">card created: " << name << "\n* power: " << power << endl;
 
 }
 
 Card::~Card(){
-      cout << "destructed card: " << name <<  endl;
-      cout<< "⋆˚౨ৎ ⋆.˚\n" << endl;
+      cout<< ">card destructed: " << name << endl;
+
 }
 
 string Card::getName() const{
@@ -36,5 +33,5 @@ void Card::setPower(int newPower) {
 }
 
 void Card::printCard() const {
-    cout << "> name: " << name << " power: " << power << endl;
+    cout << "\n* name:" << getName() << "\n*power: " << getPower() << endl;
 }

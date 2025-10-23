@@ -1,75 +1,29 @@
+
 #ifndef MAGICCARD_H
 #define MAGICCARD_H
+
 #include <string>
+#include "Player.h"
 using namespace std;
 
-class MagicCard {
-      private:
-            struct Player {
-                  int id;
-                  string name;
-                  string* cards;      
-                  int cardCount;  
+class MagicCard{
+    private:
+        Player* players;   
+        // bu players arrayini gösteren bir player pointerı. sürekli yeni şey oluşturacağız. o
+        int playerCount;
 
-                  Player() {
-                        id = 0;
-                        name = "";
-                        cards = nullptr;
-                        cardCount = 0;
-                  }
+    public:
+        MagicCard();
+        ~MagicCard();
 
-                  Player(int newId) {
-                        id = newId;
-                        name = "";
-                        cards = nullptr;
-                        cardCount = 0;
-                  }
+        string getCardName() const;
+        void setCardName(const string& name);
 
-                  Player(int newId, string newName) {
-                        id = newId;
-                        name = newName;
-                        cards = nullptr;
-                        cardCount = 0;
-                  }
+        void playerExists(); // must check if a player exists in the player list by id
+        void addPlayer(); // must add a player to the player list. but should check if it's unique.
+        void removePlayer(); // must remove a player from the player list by id
+        void printPlayers(); /// print id and names.
+        // if no player give a warning message. ascending order according to. ids.
 
-            };
-            
-            Player* players;        
-            int playerCount;     
-            
-            string* drawPile;       
-            int drawPileSize;      
-            
-            string* discardPile;    
-            int discardPileSize;    
-            
-            int findPlayerIndex(const int playerID) const;  
-            bool playerExists(const int playerID) const;     
-            bool playerHasCard(const int playerIndex, const string card) const; 
-            //bool cardsMatch(const string card1, const string card2) const;     
-            //void removeCardFromPlayer(const int playerIndex, const string card);
-            //void addCardToPlayer(const int playerIndex, const string card);   
-
-
-      public:
-
-            MagicCard();
-            ~MagicCard();
-            
-            void addPlayer(const int playerID, const string name);
-            void removePlayer(const int playerID);
-            //void switchHands(const int player1ID, const int player2ID);
-
-
-            void printPlayers() const;
-            //void listDrawPile() const;
-            // void listDiscardPile() const;
-            void listCardsOfPlayer(const int playerID) const;
-            
-            void setDrawPile(const string drawPile[], const int size);
-            void drawCardFromDeck(const int playerID, const int n);
-            
-            ///void play(const int playerID, const string card);
-};
-
+}
 #endif

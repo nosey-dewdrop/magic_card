@@ -11,10 +11,10 @@ Player::Player(){
       cards = nullptr;
       cardCount = 0;
 
-      cout<<"\nplayer created!" << endl <<
-            "id:" << id << endl <<
-            "username: " << userName 
-            << endl;
+      // cout<<"\nplayer created!" << endl <<
+      //       "id:" << id << endl <<
+      //       "username: " << userName 
+      //       << endl;
 
 }
 
@@ -32,7 +32,7 @@ Player::Player(int newId, const string& newName){
 }
 
 Player::~Player(){
-      cout<<"\ndeleted: " << getUserName() << endl;
+      // cout<<"\ndeleted: " << getUserName() << endl;
       // i am not sure man... delete[] cards; 
       // cards array is a dynamic array.
 
@@ -94,13 +94,4 @@ void Player::getCards() const{
       }
 }
 
-// int main(){
-//       // Player p1;
-//       Player p2(10, "damla");
-//       p2.addCard("R1");
-//       p2.addCard("R2");
-//       p2.addCard("R3");
-//       p2.getCards();
-//       return 0;
-// }
 

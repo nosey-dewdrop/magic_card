@@ -26,7 +26,7 @@ class MagicCard{
 
         // const because doN't change it by mistake.
 
-        bool playerExists(); // must check if a player exists in the player list by id
+        bool playerExists(int id); // must check if a player exists in the player list by id
         void addPlayer(int id, const string& name); // must add a player to the player list. but should check if it's unique.
         
         // void removePlayer(); // must remove a player from the player list by id

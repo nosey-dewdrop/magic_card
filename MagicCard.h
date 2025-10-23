@@ -8,9 +8,11 @@ using namespace std;
 
 class MagicCard{
     private:
+    
         Player* players;   
         // bu players arrayini gösteren bir player pointerı. sürekli yeni şey oluşturacağız. o
         int playerCount;
+        // sürekli eksiltip çıkaracağımız için counter tutalım.
 
     public:
         MagicCard();

@@ -9,8 +9,7 @@ using namespace std;
 class Player {
     private:
         string userName;
-        int id; // must be unique.
-        
+        int id; 
         string* cards;  // dynamically allocated array of strings
         int cardCount;
         
@@ -20,16 +19,16 @@ class Player {
         ~Player();
 
         void addCard(const string& newCard);
-        int findIndex(const string& card);
         void removeCard(const string& newCard);
 
         string getUserName() const;    
         int getId() const;
         int getCardCount() const;
-        void getCards() const;
+        string* getCardsArray() const;
+        void printCards() const;
 
-        // void setUserName(const string& name);
-        // void setId(int newId);
+        void setUserName(const string& name);
+        void setId(int newId);
 
 };
 

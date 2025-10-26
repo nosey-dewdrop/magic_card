@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/damummyphus/magic_card",
-      "program": "/Users/damummyphus/magic_card/build/Debug/outDebug"
+      "cwd": "/Users/damummyphus/Desktop/cs201/hw0",
+      "program": "/Users/damummyphus/Desktop/cs201/hw0/build/Debug/outDebug"
     }
   ]
 }

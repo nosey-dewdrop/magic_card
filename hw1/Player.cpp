@@ -40,6 +40,7 @@ Player::~Player(){
        * 
        */
 
+      //Q6: Why we do not delete the cards array from the heap?
       //delete[] cards;
       
 }
@@ -73,10 +74,11 @@ int Player::findCardIndex(const string& card){
 }
 
 void Player::removeCard(const string& card){
-      int index = findCardIndex(card);
+      // ek fonksiyon yazmışsın ama tek tek loop yapmaktan daha az run timelı. çok iyi.
 
+      int index = findCardIndex(card);
       if(index == -1){
-            cout << "card not found" << endl;
+            cout << "Card not found." << endl;
             return;
       }
 
@@ -127,4 +129,13 @@ void Player::printCards() const{
 
 string* Player::getCardsArray() const {
     return cards;
+    // Gives the array only. Not tne array elements.
+}
+
+void Player:: setUserName(const string& name){
+      userName = name;
+}
+
+void Player:: setId(int newId){
+      id = newId;
 }

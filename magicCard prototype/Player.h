@@ -20,8 +20,8 @@ class Player {
         ~Player();
 
         void addCard(const string& newCard);
-        // void removeCard(const string& newCard);
-        void printCards() const;
+        int findIndex(const string& card);
+        void removeCard(const string& newCard);
 
         string getUserName() const;    
         int getId() const;

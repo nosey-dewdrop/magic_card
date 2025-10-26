@@ -23,7 +23,6 @@ class MagicCard{
 
         MagicCard();
         ~MagicCard();
-
         // const because doN't change it by mistake.
 
         bool playerExists(int id); // must check if a player exists in the player list by id

@@ -69,6 +69,43 @@ void Player::addCard(const string& newCard) {
 
 }
 
+int Player::findIndex(const string& card){
+      for(int i = 0; i < cardCount; i++){
+            if(cards[i] == card){
+                  return i;
+            }
+      }
+      return -1;
+}
+
+void Player::removeCard(const string& card){
+      int index = findIndex(card);
+
+      if(index == -1){
+            cout << "card not found" << endl;
+            return;
+      }
+
+      else{
+            string* newArr = new string[cardCount - 1];
+
+            for(int i = 0; i < index; i++){
+                  newArr[i] = cards[i];
+            }
+
+            for(int j = index+1; j < cardCount; j++){
+                  newArr[j-1] = cards[j];
+            }
+
+            cardCount--;
+            delete[] cards;
+            cards = newArr;
+
+            cout << "\n" << card << " deleted!!!" << endl;
+            cout << "card count is:" << cardCount << endl;
+      }
+}
+
 int Player::getId() const {
        return id; 
 }
@@ -93,5 +130,4 @@ void Player::getCards() const{
             return;
       }
 }
-
 

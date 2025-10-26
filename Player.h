@@ -1,0 +1,37 @@
+
+#ifndef PLAYER_H
+#define PLAYER_H
+
+#include <string>
+#include <iostream>
+using namespace std;
+
+class Player {
+    private:
+        string userName;
+        int id; // must be unique.
+        
+        string* cards;  // dynamically allocated array of strings
+        int cardCount;
+        
+    public:
+        Player();
+        Player(int newId, const string& newName);           
+        ~Player();
+
+        void addCard(const string& newCard);
+        int findCardIndex(const string& card);
+        void removeCard(const string& newCard);
+
+        string getUserName() const;    
+        int getId() const;
+        int getCardCount() const;
+        void printCards() const;
+        string* getCardsArray() const;
+
+        // void setUserName(const string& name);
+        // void setId(int newId);
+
+};
+
+#endif

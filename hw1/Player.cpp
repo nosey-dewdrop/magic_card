@@ -58,10 +58,6 @@ void Player::addCard(const string& newCard) {
     delete[] cards;
     cards = newArr;
     cardCount++;
-
-    cout << "\n" <<newCard << " eklendi!!!" << endl;
-    cout << "card count is:" << cardCount << endl;
-
 }
 
 int Player::findCardIndex(const string& card){
@@ -114,7 +110,7 @@ int Player::getCardCount() const{
       return cardCount;
 }
 
-void Player::printCards() const{
+void Player::printPlayerCards() const{
       if(cardCount != 0){
             cout << "\ncards: " << endl;
             for (int i = 0; i < cardCount; i++){

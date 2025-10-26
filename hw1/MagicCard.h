@@ -2,9 +2,10 @@
 #ifndef MAGICCARD_H
 #define MAGICCARD_H
 
+#include <iostream>
 #include <string>
 #include "Player.h"
-using namespace std;
+using std::string;
 
 class MagicCard{
 
@@ -45,11 +46,12 @@ class MagicCard{
 
         void printDrawPile();
 
-        // void printDiscardPile();
+        void printDiscardPile();
 
-        int findCardIndex(string card)
+        int findCardIndex(string card);
         void drawCardFromDeck(int id, string cardName);
 
+        void printCardsOfPlayer(int id);
         // void switchHands();
         /*
         you can do it. hands of th eplayers are just pointer arrays.

@@ -2,9 +2,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <string>
 #include <iostream>
-using namespace std;
+#include <string>
+using std::string;
 
 class Player {
     private:
@@ -19,14 +19,14 @@ class Player {
         ~Player();
 
         void addCard(const string& newCard);
+        int findCardIndex(const string& card);
         void removeCard(const string& newCard);
 
         string getUserName() const;    
         int getId() const;
         int getCardCount() const;
         string* getCardsArray() const;
-        void printCards() const;
-
+        void printPlayerCards() const;
         void setUserName(const string& name);
         void setId(int newId);
 

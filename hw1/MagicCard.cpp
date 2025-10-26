@@ -5,7 +5,6 @@ using namespace std;
 MagicCard::MagicCard() {
 
     players = nullptr;
-    currentPlayer = nullptr;
     // When it is goin on turns.
     playerCount = 0;
 
@@ -134,29 +133,17 @@ bool MagicCard::playerExists(int id){
 
 
 /*
-buralardan sonra biraz karışık.
-mesela adamın hem id hem ismi var. ama indexini sadece proıgramcı biliyor kullanıcı değil.
-programın bazen ihtiyacı var bu veriye.
-
-ama düşünmek lazım belki eklemeler olabilir.
-*/
-
-/*
-hangi id sahip kullanıcı hangi indexli kartı çekecek. 
-ama kullanıcı sadece kart string ismini biliyor.*/
-/*
 hangi elemanda işlem yaptığımızı onun id vererek göstermiştik. isim değil id unique olmalıydı.
 */
 
 // kartın ismini giriyorum, index veriyor. ama hangi deste üzerinden gideceğimi bilmediğim içn şu anda drawPileCount kadar yaptım.
-
 int MagicCard::findCardIndex(string card){
-    for(int i = 0; i < drawPileCount; i++){
+    for(int i = 0; i < drawCount; i++){
         if(card == drawPile[i]){
             return i;
         }
     }
-    return;
+    return -1;
 }
 
 void MagicCard::drawCardFromDeck(int id, string cardName){
@@ -168,15 +155,57 @@ void MagicCard::drawCardFromDeck(int id, string cardName){
         return;
     }
 
-    if(n > drawCount){
+    if( index > drawCount || index == -1){
         cout << "Cannot draw card. The input index is not valid." << endl;
         return;
     }
          
     cout << players[playerIndex(id)].getUserName() << " drew card " << cardName << " from the draw pile." << endl;
     players[playerIndex(id)].addCard(cardName);
-    
+
+    string* newCards = new string[drawCount-1];
+
+    for(int i = 0; i < index; i++){
+        newCards[i] = drawPile[i];
+    }
+
+    for(int j = index; j < drawCount; j++){
+        newCards[j] = drawPile[j+1];
+    }
+
+    delete[] drawPile;
+    drawPile = newCards;
+    drawCount--;
 }
+
+void MagicCard:: printCardsOfPlayer(int id){
+    players[playerIndex(id)].printPlayerCards();
+}
+
+
+void MagicCard::printDrawPile(){
+
+    if(drawCount == 0){
+        return;
+    }
+
+    for(int i = 0; i < drawCount; i++){
+        cout << "[" << drawPile[i] << "]";
+    }
+}
+
+void MagicCard::printDiscardPile(){
+
+    if(drawCount == 0){
+        return;
+    }
+
+    for(int i = 0; i < discardCount; i++){
+        cout << "[" << discardPile[i] << "]";
+    }
+}
+
+
 
 // overload olduğu için tekrardan .h yazmadık.
 
@@ -184,18 +213,12 @@ void MagicCard::drawCardFromDeck(int id, string cardName){
 //     if(!playerExists(id1) || !playerExists(id2)){
 //         cout << "Cannot switch hands. One or both players do not exist."<< endl;
 //     }
+
+//     string* temp = 
 // }
 
-void MagicCard::printDrawPile(){
-    for(int i = 0; i < drawCount; i++){
-        cout << "[" << drawPile[i] << "]";
-    }
-}
 
-
-
-
-// int MagicCard::getDrawCount() const {
+// int MagicCard::geDrawCount() const {
 //     return drawCount;
 // }
 

@@ -27,7 +27,7 @@ class MagicCard{
         ~MagicCard();
         //  Q1: What does it really do, so we don't need to delete the cards dynamic array from each player?
 
-        void setDrawPile();
+        void setDrawPile(const string drawPile[], const int size); 
 
         bool playerExists(int id); 
         
@@ -44,15 +44,21 @@ class MagicCard{
          // if no player give a warning message. ascending order according to ids.
         // Q5: Why const?
 
-        void printDrawPile();
+        void listDrawPile() const;
 
-        void printDiscardPile();
+        void listDiscardPile() const;
 
         int findCardIndex(string card);
-        void drawCardFromDeck(int id, string cardName);
+        void drawCardFromDeck(int id, int n);
 
-        void printCardsOfPlayer(int id);
-        // void switchHands();
+        void listCardsOfPlayer(int id) const;
+
+        bool inGame(int id);
+
+        void switchHands(const int player1ID, const int player2ID);
+
+        void play(const int playerID, const string card);
+        
         /*
         you can do it. hands of th eplayers are just pointer arrays.
         */

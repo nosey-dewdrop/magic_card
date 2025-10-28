@@ -23,6 +23,7 @@ Player::Player(int newId, const string& newName){
       userName = newName;
       cards = nullptr;
       cardCount = 0;
+      // isAlive = true;
 }
 
 Player::~Player(){
@@ -41,7 +42,7 @@ Player::~Player(){
        */
 
       //Q6: Why we do not delete the cards array from the heap?
-      //delete[] cards;
+      delete[] cards;
       
 }
 
@@ -79,6 +80,7 @@ void Player::removeCard(const string& card){
       }
 
       else{
+
             string* newArr = new string[cardCount - 1];
 
             for(int i = 0; i < index; i++){
@@ -92,10 +94,9 @@ void Player::removeCard(const string& card){
             cardCount--;
             delete[] cards;
             cards = newArr;
-
-            cout << "\n" << card << " deleted!!!" << endl;
-            cout << "card count is:" << cardCount << endl;
       }
+
+      // kart attığımda azalacak. drawPile ekleniyor.
 }
 
 int Player::getId() const {
@@ -134,4 +135,9 @@ void Player:: setUserName(const string& name){
 
 void Player:: setId(int newId){
       id = newId;
+}
+
+
+bool Player::hasCard(const string& card) const {
+    return findCardIndex(card) != -1;
 }

@@ -30,6 +30,8 @@ class Player {
         void setUserName(const string& name);
         void setId(int newId);
 
+        bool hasCard(const string& card) const;
+
 };
 
 #endif
